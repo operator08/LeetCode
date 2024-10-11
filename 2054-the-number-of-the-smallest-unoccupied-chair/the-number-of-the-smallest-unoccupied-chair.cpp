@@ -1,6 +1,10 @@
 class Solution {
 public:
     int smallestChair(vector<vector<int>>& times, int targetFriend) {
+        ios::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
+        
         vector<int> targetTime = times[targetFriend];
 
         // Sorts according to times[i][0], which represents arrival time in this case
@@ -18,6 +22,6 @@ public:
                 }
             }
         }   
-        return 1;
+        return -1;
     }
 };
