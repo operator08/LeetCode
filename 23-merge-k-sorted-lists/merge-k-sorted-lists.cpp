@@ -8,6 +8,8 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+// Assume callers calls free()
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
