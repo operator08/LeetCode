@@ -5,35 +5,22 @@ public:
 
         int size = numberStr.size();
 
-        if (size != 1) {
-            for (int i = 0; i < size / 2; i++) {
-                swap(numberStr[i], numberStr[size - 1]);
+        unordered_map<int, int> invertMap = {{0, 0}, {1, 1}, {6, 9}, {8, 8}, {9, 6}};
+
+        int rotatedNumber = 0, nCopy = n;
+
+        while (nCopy > 0) {
+            int latest = nCopy % 10;
+
+            if (invertMap.find(latest) == invertMap.end()) {
+                return false;
             }
+
+            rotatedNumber = rotatedNumber * 10 + invertMap[latest];
+
+            nCopy /= 10;	
         }
 
-        for (int j = 0; j < size; j++) {
-            switch(numberStr[j]) {
-                case '0':
-                    break;	
-                case '1':
-                    break;
-                case '6':
-                    numberStr[j] = '9';
-                    break;
-                case '8':
-                    break;
-                case '9':
-                    numberStr[j] = '6';
-                    break;
-                default:
-                    return false;
-            }
-        }
-
-        if (stoi(numberStr) == n) {
-            return false;
-        }
-
-        return true;
+        return rotatedNumber != n;
     }
 };
