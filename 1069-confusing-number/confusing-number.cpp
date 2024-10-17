@@ -11,7 +11,6 @@ public:
             }
         }
 
-
         for (int j = 0; j < size; j++) {
             switch(numberStr[j]) {
                 case '0':
