@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+    // C styled
     ListNode* middleNode(ListNode* head) {
         int n = 0;
         ListNode* ptr = head;
