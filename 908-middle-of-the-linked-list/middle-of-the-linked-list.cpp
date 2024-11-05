@@ -26,7 +26,6 @@ public:
                 return ptr;
             }
         }
-
         return head;
     }
 };
