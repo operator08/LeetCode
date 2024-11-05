@@ -12,21 +12,16 @@ class Solution {
 public:
     // C styled
     ListNode* middleNode(ListNode* head) {
+        ListNode* fast = head;
+        ListNode* slow = head;
         int n = 0;
-        ListNode* ptr = head;
-        while (ptr != nullptr) {
+        while (fast != nullptr) {
             n++;
-            ptr = ptr->next;
-        }    
-        ptr = head;
-        int i = 0;
-        while (ptr != nullptr) {
-            ptr = ptr->next;
-            i++;
-            if (i == ceil(n / 2)) {
-                return ptr;
+            fast = fast->next;
+            if (n % 2 == 0) {
+                slow = slow->next;
             }
         }
-        return head;
+        return slow;
     }
 };
