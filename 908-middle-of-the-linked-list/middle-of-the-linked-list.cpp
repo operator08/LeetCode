@@ -10,7 +10,6 @@
  */
 class Solution {
 public:
-    // C styled
     ListNode* middleNode(ListNode* head) {
         ListNode* fast = head;
         ListNode* slow = head;
