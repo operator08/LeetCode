@@ -1,14 +1,19 @@
 class Solution {
 public:
     vector<int> arraysIntersection(vector<int>& arr1, vector<int>& arr2, vector<int>& arr3) {
-        vector<int> output;
-        for (int i = 0; i < arr1.size(); i++) {
-            int curNum = arr1[i];
-            if (find(arr2.begin(), arr2.end(), curNum) != arr2.end() && find(arr3.begin(), arr3.end(), 
-                curNum) != arr3.end()) {
-                    output.push_back(curNum);
+        // three pointers
+        vector<int> ans;
+        int p1 = 0, p2 = 0, p3 = 0;
+        while (p1 < arr1.size() && p2 < arr2.size() && p3 < arr3.size()) {
+            if (arr1[p1] == arr2[p2] && arr1[p1] == arr3[p3]) {
+                ans.push_back(arr1[p1]);
+                p1++, p2++, p3++;
+            } else {
+                if (arr1[p1] < arr2[p2])      p1++;
+                else if (arr2[p2] < arr3[p3]) p2++;
+                else                          p3++;
             }
         }
-        return output;
+        return ans;
     }
 };
