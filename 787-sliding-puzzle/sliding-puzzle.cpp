@@ -85,7 +85,7 @@ public:
         if (d.count(id)) {
             return d.at(id);
         } else {
-            return -1; // Return -1 if configuration is not solvable or found
+            return -1;
         }
     }
 };
