@@ -1,7 +1,7 @@
 class Solution {
 public:
     int slidingPuzzle(vector<vector<int>>& board) {
-        unordered_map<int, int> d = {
+        static const unordered_map<int, int> d = {
             {123450, 0}, {123405, 1}, {123045, 2}, {23145, 3}, {203145, 4},
             {230145, 5}, {235140, 6}, {235104, 7}, {235014, 8}, {35214, 9},
             {305214, 10}, {350214, 11}, {354210, 12}, {354201, 13}, {354021, 14},
@@ -82,7 +82,10 @@ public:
                 id = id * 10 + board[i][j];
             }
         }
-
-        return d.count(id) ? d[id] : -1;
+        if (d.count(id)) {
+            return d.at(id);
+        } else {
+            return -1; // Return -1 if configuration is not solvable or found
+        }
     }
 };
