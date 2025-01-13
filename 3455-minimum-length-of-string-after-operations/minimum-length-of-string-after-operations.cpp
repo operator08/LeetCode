@@ -7,8 +7,11 @@ public:
             freq[s[i]]++;
         }
         int res = 0;
-        for (auto& f : freq) {
-            res += f.second % 2 == 0 ? 2 : 1;
+        for (int i = 0; i < n; i++){
+            if (freq[s[i]] != 0) {
+                res += freq[s[i]] % 2 == 0 != 0 ? 2 : 1;
+                freq[s[i]] = 0;
+            }
         }
         return res;
     }
