@@ -2,12 +2,21 @@ class Solution {
 public:
     bool checkIfExist(vector<int>& arr) {
         int n = arr.size();
-        bool check = false;
+        sort(arr.begin(), arr.end());
         for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (arr[i] == arr[j] * 2 || arr[i] * 2 == arr[j]) check = 1;
+            int left = 0;
+            int right = n - 1;
+            while (left <= right) { // [left, right], if < then [left, right)
+                int mid = left + (right - left) / 2;
+                if (mid != i && arr[mid] == 2 * arr[i]) {
+                    return true;
+                } else if (arr[mid] < 2 * arr[i]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
             }
-        }    
-        return check;
+        }
+        return false;
     }
 };
