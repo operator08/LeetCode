@@ -2,10 +2,9 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         int n = nums.size();
-        unordered_map<int, int> freq;
         int p = 0;
-        for (int i = 0; i < n; i++) {
-            if (freq[nums[i]]++ < 1) {
+        for (int i = 0; i < n; i++)  {
+            if (i + 1 >= n || nums[i] != nums[i + 1]) {
                 nums[p] = nums[i];
                 p++;
             }
