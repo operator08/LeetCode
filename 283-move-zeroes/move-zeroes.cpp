@@ -1,15 +1,13 @@
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
+        // O(1) space complexity
         int n = nums.size();
-        int lastNonZero = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0, j = 0; i < n; i++) {
             if (nums[i] != 0) {
-                nums[lastNonZero++] = nums[i];
+                swap(nums[j], nums[i]);
+                j++;
             }
-        }
-        for (int i = lastNonZero; i < n; i++) {
-            nums[i] = 0;
         }
     }
 };
