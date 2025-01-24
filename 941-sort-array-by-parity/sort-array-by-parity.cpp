@@ -2,19 +2,19 @@ class Solution {
 public:
     vector<int> sortArrayByParity(vector<int>& nums) {
         int n = nums.size();
-        vector<int> evens;
-        vector<int> odds;
+        int j = 0;
         for (int i = 0; i < n; i++) {
-            if (nums[i] % 2 == 0) {
-                evens.push_back(nums[i]);
-            } else {
-                odds.push_back(nums[i]);
+            if (nums[i] % 2 == 1) {
+                int p = i;
+                for (int j = i + 1; j < n; j++) {
+                    if (nums[j] % 2 == 0) {
+                        swap(nums[j], nums[i]);
+                        p++;
+                    }
+                }
             }
         }
-        for (int i = 0; i < odds.size(); i++) {
-            evens.push_back(odds[i]);
-        }
-        return evens;
+        return nums;
     }
 };
 /*
