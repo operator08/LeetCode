@@ -2,21 +2,22 @@ class Solution {
 public:
     vector<int> sortArrayByParity(vector<int>& nums) {
         int n = nums.size();
-        int j = 0;
-        for (int i = 0; i < n; i++) {
-            if (nums[i] % 2 == 1) {
-                int p = i;
-                for (int j = i + 1; j < n; j++) {
-                    if (nums[j] % 2 == 0) {
-                        swap(nums[j], nums[i]);
-                        p++;
-                    }
-                }
+        int i = 0;
+        while (i < n && (nums[i] & 1) == 0) {
+            i++;
+        }
+        int j = i + 1;
+        while (j < n) {
+            if ((nums[j] & 1) == 0) {
+                swap(nums[j++], nums[i++]);
+            } else {
+                j++;
             }
         }
         return nums;
     }
 };
+
 /*
 To Everyone using nums[ i ] % 2 == 0 to check for even element. Read the question carefully and use bitmask to determine even numbers which is fast computation wise.
 ( nums[ i ] & 0x1 ) == 0 instead of nums[ i ] % 2 == 0
