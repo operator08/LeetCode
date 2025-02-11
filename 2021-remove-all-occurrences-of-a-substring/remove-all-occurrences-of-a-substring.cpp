@@ -5,7 +5,7 @@ public:
         while (i + j <= s.size()) {
             if (s.substr(i, j) == part) {
                 s.erase(i, j);
-                i = 0;
+                i = max(0, i - j);
             } else {
                 i++;
             }
