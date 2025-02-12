@@ -10,8 +10,7 @@ public:
                 if (arr.size() <= w) arr.pb("");
                 arr[w] += s[i];
             } else if (i >= 1 && s[i - 1] != ' ' && s[i] == ' ')  {
-                while (s[i] == ' ') i++;
-                i--;
+                
                 w++;
             }
         }
