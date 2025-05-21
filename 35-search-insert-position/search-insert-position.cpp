@@ -13,13 +13,6 @@ public:
                 right = mid - 1;
             }
         }
-        if (target >= nums[n - 1]) return n;
-        else if (target <= nums[0]) return 0;
-        for (int i = 0; i < n - 1; i++) {
-            if (nums[i] <= target && target <= nums[i + 1]) {
-                return i + 1;
-            }
-        }
-        return -1;
+        return left;
     }
 };
