@@ -6,7 +6,7 @@ public:
         int left = 0, right = n - 1;
         int i = n - 1;
         while (left <= right) {
-            if (pow(nums[left], 2) > pow(nums[right], 2)) {
+            if (abs(nums[left]) > abs(nums[right])) {
                 v[i] = pow(nums[left], 2);
                 i--;
                 left++;
