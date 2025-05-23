@@ -4,8 +4,7 @@ public:
     vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {
         int n = spells.size(), m = potions.size();
         sort(potions.begin(), potions.end());
-        vector<int> res;
-        res.reserve(n);
+        vector<int> res(n);
         for (int i = 0; i < n; i++) {
             int curSpell = spells[i];
             int count = 0;
@@ -19,7 +18,7 @@ public:
                     left = mid + 1;
                 }
             }
-            res.emplace_back(count);
+            res[i] = count;
         }    
         return res;
     }
