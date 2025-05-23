@@ -5,6 +5,7 @@ public:
         int n = spells.size(), m = potions.size();
         sort(potions.begin(), potions.end());
         vector<int> res;
+        res.reserve(n);
         for (int i = 0; i < n; i++) {
             int curSpell = spells[i];
             int count = 0;
