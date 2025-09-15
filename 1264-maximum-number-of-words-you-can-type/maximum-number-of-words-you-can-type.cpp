@@ -15,7 +15,6 @@ public:
                 }
                 if (!canType) break;
             }
-
             if (canType) output++;
         }
         return output;
